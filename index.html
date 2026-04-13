@@ -7,12 +7,12 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--pink:#f06292;--deep-pink:#e91e8c;--purple:#9c27b0;--gold:#ffd700;--cream:#fff8f9}
-html, body {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background: var(--cream);
-  overflow-x: hidden;   /* only block horizontal scroll */
-  overflow-y: auto;     /* allow vertical scroll */
+html,body{
+  height:100%;
+  font-family:'Segoe UI',sans-serif;
+  background:var(--cream);
+  overflow-x:hidden;
+  overflow-y:auto;
 }
 
 .page{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;transition:opacity 0.55s ease,transform 0.55s ease;transform:translateX(70px)}
@@ -25,7 +25,7 @@ html, body {
 
 /* PAGE 1 */
 #page1{background:linear-gradient(155deg,#fff0f5 0%,#fce4ec 45%,#f3e5f5 100%)}
-.p1-inner{display:flex;flex-direction:column;align-items:center;width:100%;min-height:100%;padding:0 0 100px}
+.p1-inner{display:flex;flex-direction:column;align-items:center;width:100%;min-height:100vh;padding:0 0 160px}
 
 .hearts-bg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .fh{position:absolute;animation:floatH 6s ease-in-out infinite;opacity:.4}
@@ -53,6 +53,10 @@ html, body {
 .msg-greet{font-size:15px;color:var(--purple);font-weight:700;margin-bottom:12px;letter-spacing:.5px}
 .msg-text{font-size:15px;color:#444;line-height:1.9;white-space:pre-line}
 .msg-sign{margin-top:18px;font-size:14px;color:var(--pink);font-weight:700;text-align:right;letter-spacing:.5px}
+  .msg-card{
+  max-height:55vh;
+  overflow-y:auto;
+}
 
 .cta-btn{display:block;margin:24px auto 0;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;padding:16px 42px;border-radius:50px;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 6px 22px rgba(240,98,146,.42);letter-spacing:1px;animation:slideD .9s .9s ease both,btnPulse 2.5s 2s ease-in-out infinite;position:relative;z-index:1}
 @keyframes btnPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
