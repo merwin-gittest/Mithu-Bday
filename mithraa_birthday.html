@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Happy Birthday Mithuu 🎂</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--pink:#f06292;--deep-pink:#e91e8c;--purple:#9c27b0;--gold:#ffd700;--cream:#fff8f9}
+html,body{height:100%;font-family:'Segoe UI',sans-serif;background:var(--cream);overflow:hidden}
+
+/* PAGES */
+.page{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;overflow-y:auto;overflow-x:hidden;opacity:0;pointer-events:none;transition:opacity 0.55s ease,transform 0.55s ease;transform:translateX(70px)}
+.page.active{opacity:1;pointer-events:all;transform:translateX(0)}
+.page.exit-left{opacity:0;transform:translateX(-70px)}
+
+/* NAV DOTS */
+.nav-dots{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:999}
+.dot{width:10px;height:10px;border-radius:50%;background:#ddd;cursor:pointer;transition:background 0.3s,transform 0.3s;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.dot.active{background:var(--deep-pink);transform:scale(1.3)}
+
+/* ===== PAGE 1 ===== */
+#page1{background:linear-gradient(155deg,#fff0f5 0%,#fce4ec 45%,#f3e5f5 100%);padding:0 0 90px;min-height:100vh}
+
+.hearts-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.fh{position:absolute;animation:floatH 6s ease-in-out infinite;opacity:.4}
+@keyframes floatH{0%,100%{transform:translateY(0) rotate(-5deg);opacity:.4}50%{transform:translateY(-28px) rotate(5deg);opacity:.7}}
+
+.p1-top{width:100%;text-align:center;padding:38px 20px 16px;position:relative}
+.p1-label{font-size:12px;letter-spacing:4px;color:var(--purple);text-transform:uppercase;margin-bottom:8px;animation:slideD .9s ease both}
+.p1-name{font-size:clamp(34px,10vw,52px);font-weight:800;color:var(--deep-pink);line-height:1.1;animation:slideD .9s .15s ease both}
+.p1-name span{display:block;font-size:clamp(22px,6vw,32px);color:var(--purple)}
+@keyframes slideD{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:translateY(0)}}
+
+.balloons{display:flex;justify-content:center;gap:12px;margin:6px 0;animation:slideD .9s .3s ease both}
+.bal{font-size:38px;cursor:pointer;display:inline-block;animation:balFloat 3s ease-in-out infinite;transition:transform .15s}
+.bal:nth-child(2){animation-delay:.5s}.bal:nth-child(3){animation-delay:1s}.bal:nth-child(4){animation-delay:1.5s}.bal:nth-child(5){animation-delay:2s}
+.bal:active{transform:scale(1.5) rotate(20deg)!important}
+@keyframes balFloat{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-18px) rotate(4deg)}}
+
+.sparkle-row{display:flex;justify-content:center;gap:8px;margin:8px 0 4px;animation:slideD .9s .45s ease both}
+.sparkle-row span{font-size:20px;animation:spk 2s ease-in-out infinite}
+.sparkle-row span:nth-child(2){animation-delay:.35s}.sparkle-row span:nth-child(3){animation-delay:.7s}
+@keyframes spk{0%,100%{transform:scale(1)}50%{transform:scale(1.3) rotate(25deg)}}
+
+.msg-card{background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-radius:24px;margin:0 16px;padding:26px 22px;box-shadow:0 8px 32px rgba(240,98,146,.15);border:1.5px solid rgba(240,98,146,.18);animation:slideD .9s .6s ease both;position:relative;overflow:hidden}
+.msg-card::before{content:'';position:absolute;top:-28px;right:-28px;width:90px;height:90px;border-radius:50%;background:rgba(240,98,146,.07)}
+.msg-greet{font-size:15px;color:var(--purple);font-weight:700;margin-bottom:12px;letter-spacing:.5px}
+/* ✏️ EDIT YOUR MESSAGE BELOW — change only the text inside .msg-text */
+.msg-text{font-size:15px;color:#444;line-height:1.9;white-space:pre-line}
+.msg-sign{margin-top:18px;font-size:14px;color:var(--pink);font-weight:700;text-align:right;letter-spacing:.5px}
+
+.cta-btn{display:block;margin:24px auto 0;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;padding:16px 42px;border-radius:50px;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 6px 22px rgba(240,98,146,.42);letter-spacing:1px;animation:slideD .9s .9s ease both,btnPulse 2.5s 2s ease-in-out infinite}
+@keyframes btnPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.cta-btn:active{transform:scale(.95)!important}
+
+.confetti-p{position:fixed;width:8px;height:14px;top:-20px;border-radius:2px;animation:cfFall linear forwards;z-index:998;pointer-events:none}
+@keyframes cfFall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+
+/* ===== PAGE 2 ===== */
+#page2{background:linear-gradient(160deg,#1a0030,#2d0050,#1a0030);min-height:100vh;padding:0 0 90px;align-items:center}
+
+.stars-bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.star-d{position:absolute;border-radius:50%;background:#fff;animation:twink ease-in-out infinite}
+@keyframes twink{0%,100%{opacity:.15;transform:scale(1)}50%{opacity:1;transform:scale(1.5)}}
+
+.p2-title{color:#fff;font-size:clamp(22px,7vw,30px);font-weight:800;text-align:center;padding:34px 20px 4px;letter-spacing:.5px;position:relative;z-index:1}
+.p2-sub{color:rgba(255,255,255,.5);font-size:12px;text-align:center;margin-bottom:8px;letter-spacing:2px;text-transform:uppercase;z-index:1;position:relative}
+
+/* Cake */
+.cake-wrap{display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
+.candles-row{display:flex;gap:18px;margin-bottom:-2px;position:relative;z-index:2}
+.candle{display:flex;flex-direction:column;align-items:center}
+.flame{width:14px;height:22px;background:radial-gradient(ellipse at 50% 80%,#fff9c4,#ffd740,#ff8f00);border-radius:50% 50% 35% 35%/60% 60% 40% 40%;box-shadow:0 0 14px 5px rgba(255,200,0,.7);animation:flick .45s ease-in-out infinite alternate;transition:opacity .6s,box-shadow .6s}
+.flame.out{opacity:0;box-shadow:none}
+@keyframes flick{from{transform:skewX(-6deg) scaleY(1)}to{transform:skewX(6deg) scaleY(.88)}}
+.wick{width:10px;height:40px;border-radius:4px;position:relative}
+.wick::after{content:'';position:absolute;top:0;left:2px;width:3px;bottom:0;background:rgba(255,255,255,.2);border-radius:2px}
+
+.cake-top{width:210px;height:52px;background:linear-gradient(135deg,#f48fb1,#f06292);border-radius:14px 14px 4px 4px;position:relative;box-shadow:0 4px 0 rgba(0,0,0,.2);overflow:hidden}
+.cake-top::before{content:'';position:absolute;bottom:0;left:0;right:0;height:13px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0,rgba(255,255,255,.25) 12px,transparent 12px,transparent 24px)}
+.frosting{position:absolute;top:-9px;left:-5px;right:-5px;height:18px;background:#fff;border-radius:50% 50% 0 0/100% 100% 0 0}
+.cake-mid{width:235px;height:58px;background:linear-gradient(135deg,#ce93d8,#9c27b0);position:relative;box-shadow:0 4px 0 rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center}
+.cake-mid-txt{color:rgba(255,255,255,.92);font-size:13px;font-weight:800;letter-spacing:2px;pointer-events:none}
+.cake-bot{width:258px;height:68px;background:linear-gradient(135deg,#f8bbd0,#e91e8c);border-radius:4px 4px 20px 20px;position:relative;box-shadow:0 8px 22px rgba(0,0,0,.3);overflow:hidden}
+.cake-bot::before{content:'';position:absolute;bottom:0;left:0;right:0;height:10px;background:rgba(0,0,0,.1);border-radius:0 0 20px 20px}
+.cake-plate{width:285px;height:16px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);border-radius:50%;box-shadow:0 4px 14px rgba(0,0,0,.25);margin-top:-3px}
+.sp{position:absolute;width:6px;height:3px;border-radius:2px;opacity:.75}
+
+/* Blow */
+.blow-area{margin-top:22px;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:1}
+.blow-hint{color:rgba(255,255,255,.55);font-size:13px;letter-spacing:1px;animation:blinkT 1.5s ease-in-out infinite}
+@keyframes blinkT{0%,100%{opacity:.55}50%{opacity:1}}
+.blow-btn{background:linear-gradient(135deg,#ff5c8d,#9c27b0);color:#fff;border:none;padding:16px 46px;border-radius:50px;font-size:17px;font-weight:800;cursor:pointer;box-shadow:0 6px 26px rgba(255,92,141,.55);letter-spacing:1px;animation:glowBtn 2s ease-in-out infinite;z-index:1;position:relative}
+.blow-btn:active{transform:scale(.92)!important}
+@keyframes glowBtn{0%,100%{box-shadow:0 6px 26px rgba(255,92,141,.55)}50%{box-shadow:0 8px 38px rgba(255,92,141,.88)}}
+
+.blown-msg{display:none;text-align:center;padding:0 24px;z-index:1}
+.blown-msg.show{display:block}
+.blown-msg p{color:#fff;font-size:16px;line-height:1.9;font-weight:500}
+.bigi{font-size:46px;display:block;margin:8px 0;animation:popIn .5s ease backwards}
+@keyframes popIn{from{transform:scale(0)}to{transform:scale(1)}}
+
+/* Chocolates */
+.choco-sec{width:100%;padding:10px 18px 0;z-index:1;position:relative}
+.choco-head{color:rgba(255,255,255,.45);font-size:11px;letter-spacing:3px;text-transform:uppercase;text-align:center;margin-bottom:12px}
+.choco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;max-width:340px;margin:0 auto}
+.choco{aspect-ratio:1;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform .18s;position:relative;overflow:hidden;border:2px solid rgba(255,255,255,.08)}
+.choco:active{transform:scale(.85) rotate(-6deg)}
+.choco-lbl{font-size:9px;color:rgba(255,255,255,.85);margin-top:3px;font-weight:700;text-align:center;line-height:1.1}
+.shine{position:absolute;top:4px;left:6px;width:16px;height:7px;background:rgba(255,255,255,.22);border-radius:50%;transform:rotate(-30deg)}
+.choco-toast{position:fixed;bottom:76px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.1);backdrop-filter:blur(14px);color:#fff;padding:12px 26px;border-radius:50px;font-size:14px;font-weight:600;white-space:nowrap;opacity:0;transition:opacity .3s;z-index:200;border:1px solid rgba(255,255,255,.18);max-width:92vw;text-align:center;pointer-events:none}
+.choco-toast.show{opacity:1}
+
+.p2-next{background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.18);color:#fff;padding:14px 38px;border-radius:50px;font-size:15px;font-weight:800;cursor:pointer;margin-top:20px;letter-spacing:.5px;z-index:1;position:relative}
+.p2-next:active{background:rgba(255,255,255,.2)}
+
+/* ===== PAGE 3 ===== */
+#page3{background:linear-gradient(155deg,#fff0f5,#fce4ec,#f3e5f5);min-height:100vh;padding:0 0 90px;align-items:stretch}
+.p3-top{text-align:center;padding:36px 20px 18px}
+.p3-title{font-size:clamp(26px,8vw,36px);font-weight:800;color:var(--deep-pink)}
+.p3-sub{font-size:12px;color:var(--purple);letter-spacing:2px;margin-top:4px;text-transform:uppercase}
+
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 14px}
+.slot{border-radius:20px;overflow:hidden;position:relative;cursor:pointer;background:rgba(240,98,146,.08);border:2px dashed rgba(240,98,146,.28);aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform .25s,box-shadow .25s;animation:cardPop .6s ease backwards}
+.slot:nth-child(1){animation-delay:.1s}.slot:nth-child(2){animation-delay:.2s}.slot:nth-child(3){animation-delay:.3s}.slot:nth-child(4){animation-delay:.4s}.slot:nth-child(5){animation-delay:.5s}.slot:nth-child(6){animation-delay:.6s}
+@keyframes cardPop{from{opacity:0;transform:scale(.82) translateY(22px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.slot:active{transform:scale(.94)}
+.slot.filled{border:none;box-shadow:0 8px 26px rgba(240,98,146,.22)}
+.slot img{width:100%;height:100%;object-fit:cover;display:block}
+.slot-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(233,30,140,.7) 0%,transparent 55%);display:flex;align-items:flex-end;padding:10px;opacity:0;transition:opacity .3s}
+.slot:active .slot-ov{opacity:1}
+.slot-ov span{color:#fff;font-size:12px;font-weight:700;letter-spacing:1px}
+.slot-ph{text-align:center;padding:8px}
+.slot-icon{font-size:34px;margin-bottom:6px;display:block}
+.slot-num{font-size:11px;color:rgba(240,98,146,.55);font-weight:700;letter-spacing:1px;text-transform:uppercase}
+
+.how-note{margin:14px 14px 0;background:rgba(255,255,255,.8);border-radius:16px;padding:14px;border:1.5px solid rgba(240,98,146,.14)}
+.how-note p{font-size:13px;color:#666;line-height:1.65}
+.how-note strong{color:var(--deep-pink)}
+
+.final-wrap{margin:18px 14px 0;text-align:center;padding:26px 20px;background:linear-gradient(135deg,var(--pink),var(--purple));border-radius:24px;color:#fff}
+.final-big{font-size:26px;font-weight:800;margin-bottom:8px}
+.final-sm{font-size:14px;line-height:1.8;opacity:.92}
+
+/* Firework particles */
+.fw-p{position:fixed;border-radius:50%;width:6px;height:6px;animation:fwOut ease-out forwards;pointer-events:none;z-index:997}
+@keyframes fwOut{to{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0}}
+</style>
+</head>
+<body>
+
+<!-- =========== PAGE 1: MESSAGE =========== -->
+<div class="page active" id="page1">
+  <div class="p1-top">
+    <div class="hearts-bg" id="hbg"></div>
+    <p class="p1-label">A Special Wish For Mithu</p>
+    <h1 class="p1-name">Happy Birthday<span> Mithraa 🎉</span></h1>
+  </div>
+
+  <div class="balloons">
+    <span class="bal" onclick="popBal(this)">🎈</span>
+    <span class="bal" onclick="popBal(this)">🎈</span>
+    <span class="bal" onclick="popBal(this)">🎈</span>
+    <span class="bal" onclick="popBal(this)">🎈</span>
+    <span class="bal" onclick="popBal(this)">🎈</span>
+  </div>
+
+  <div class="sparkle-row">
+    <span>⭐</span><span>✨</span><span>⭐</span>
+  </div>
+
+  <div class="msg-card">
+    <p class="msg-greet">Dear Mithuu,</p>
+
+    <!-- ✏️✏️ EDIT YOUR MESSAGE HERE. Change only the text between the p tags. ✏️✏️ -->
+    <p class="msg-text">On your birthday, I want you to know that you're genuinely one of a kind. Still can't believe we've never met and yet here we are lol. One year of texting, calling, random convos and somehow you know me better than people I've met in person.
+
+You never need me to explain things twice. You just get it. That's honestly one of the best things about you.
+
+Hope you have a really good day today. You deserve it 🙂
+
+This little website? Yeah, I built it just for you. Because you're worth the effort and so much more. 🎂
+
+Wishing you the happiest birthday, Mithuu. May this year be full of everything that makes your heart smile — every single day.</p>
+    <!-- ✏️✏️ END OF EDITABLE MESSAGE ✏️✏️ -->
+
+    <p class="msg-sign">— your venna </p>
+  </div>
+
+  <button class="cta-btn" onclick="go(2)">Blow the Candles 🎂 →</button>
+</div>
+
+<!-- =========== PAGE 2: CAKE =========== -->
+<div class="page" id="page2">
+  <div class="stars-bg" id="starsEl"></div>
+
+  <h2 class="p2-title">Make a Wish, Mithuu! ✨</h2>
+  <p class="p2-sub">↓ Tap below to blow the candles ↓</p>
+
+  <div class="cake-wrap">
+    <div class="candles-row">
+      <div class="candle"><div class="flame" id="f1"></div><div class="wick" style="background:linear-gradient(#ff8a80,#c62828)"></div></div>
+      <div class="candle"><div class="flame" id="f2"></div><div class="wick" style="background:linear-gradient(#82b1ff,#1565c0)"></div></div>
+      <div class="candle"><div class="flame" id="f3"></div><div class="wick" style="background:linear-gradient(#ccff90,#33691e)"></div></div>
+      <div class="candle"><div class="flame" id="f4"></div><div class="wick" style="background:linear-gradient(#ffd740,#e65100)"></div></div>
+    </div>
+    <div class="cake-top">
+      <div class="frosting"></div>
+      <div class="sp" style="top:22px;left:28px;background:#fff;transform:rotate(30deg)"></div>
+      <div class="sp" style="top:30px;left:70px;background:#fff176;transform:rotate(-20deg)"></div>
+      <div class="sp" style="top:20px;left:130px;background:#80deea;transform:rotate(50deg)"></div>
+      <div class="sp" style="top:32px;left:168px;background:#f48fb1;transform:rotate(-40deg)"></div>
+    </div>
+    <div class="cake-mid">
+      <span class="cake-mid-txt">♥ Mithuu ♥</span>
+      <div class="sp" style="top:10px;left:16px;background:#fff;transform:rotate(15deg)"></div>
+      <div class="sp" style="top:38px;left:188px;background:#fff176;transform:rotate(-30deg)"></div>
+    </div>
+    <div class="cake-bot">
+      <div class="sp" style="top:14px;left:22px;background:#fff;transform:rotate(20deg)"></div>
+      <div class="sp" style="top:36px;left:78px;background:#fff176;transform:rotate(-15deg)"></div>
+      <div class="sp" style="top:18px;left:158px;background:#80deea;transform:rotate(45deg)"></div>
+      <div class="sp" style="top:42px;left:212px;background:#f48fb1;transform:rotate(-60deg)"></div>
+    </div>
+    <div class="cake-plate"></div>
+  </div>
+
+  <div class="blow-area" id="blowArea">
+    <p class="blow-hint">↑ Make a wish & blow! ↑</p>
+    <button class="blow-btn" onclick="blowCandles()">🌬️ Blow the Candles!</button>
+  </div>
+
+  <div class="blown-msg" id="blownMsg">
+    <span class="bigi">🎉</span>
+    <p>Yayy!! All candles are out!<br>May every wish you just made<br>come true this year, Mithuu! 💫</p>
+    <span class="bigi" style="animation-delay:.35s">🥳</span>
+  </div>
+
+  <div class="choco-sec">
+    <p class="choco-head">✦ Tap a treat for a sweet message ✦</p>
+    <div class="choco-grid" id="chocoGrid"></div>
+  </div>
+
+  <button class="p2-next" onclick="go(3)">Click here →</button>
+</div>
+
+<!-- =========== PAGE 3: GALLERY =========== -->
+<div class="page" id="page3">
+  <div class="p3-top">
+    <h2 class="p3-title">Dhristi bommais 📸</h2>
+  </div>
+
+  <div class="gal-grid" id="galGrid"></div>
+
+
+
+  <div class="final-wrap">
+    <p class="final-big">Happy Birthday Mithuu! 🎂</p>
+    <p class="final-sm">No matter how far away we are,<br>you're always close in thought. 🌍💕<br>Cheers to you — always &amp; always.</p>
+  </div>
+</div>
+
+<!-- Nav dots -->
+<div class="nav-dots">
+  <div class="dot active" onclick="go(1)"></div>
+  <div class="dot" onclick="go(2)"></div>
+  <div class="dot" onclick="go(3)"></div>
+</div>
+
+<div class="choco-toast" id="chocoToast"></div>
+
+<script>
+// ===== PAGE NAVIGATION =====
+let cur = 1, starsBuilt = false, blown = false;
+function go(n) {
+  if (n === cur) return;
+  const prev = document.getElementById('page' + cur);
+  prev.classList.add('exit-left');
+  setTimeout(() => prev.classList.remove('active','exit-left'), 520);
+  cur = n;
+  const next = document.getElementById('page' + cur);
+  requestAnimationFrame(() => { next.classList.add('active'); });
+  document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i === n-1));
+  if (n === 2 && !starsBuilt) buildStars();
+  if (n === 3) fireworks();
+}
+
+// ===== FLOATING HEARTS =====
+const hEmojis = ['💕','💖','💗','💓','💝','🌸','✨','🌷'];
+const hbg = document.getElementById('hbg');
+for (let i = 0; i < 14; i++) {
+  const h = document.createElement('span');
+  h.className = 'fh';
+  h.textContent = hEmojis[i % hEmojis.length];
+  h.style.cssText = `left:${Math.random()*90}%;top:${Math.random()*85}%;font-size:${13+Math.random()*16}px;animation-duration:${4+Math.random()*4}s;animation-delay:${-Math.random()*4}s`;
+  hbg.appendChild(h);
+}
+
+// ===== BALLOON POP =====
+function popBal(el) {
+  el.textContent = '💥';
+  el.style.cssText = 'animation:none;transform:scale(1.6)';
+  setTimeout(() => el.style.opacity = '0', 280);
+  confetti(4);
+}
+
+// ===== CONFETTI =====
+const cfColors = ['#f06292','#9c27b0','#ffd700','#4fc3f7','#aed581','#ff8a65','#f48fb1'];
+function confetti(n = 28) {
+  for (let i = 0; i < n; i++) {
+    setTimeout(() => {
+      const c = document.createElement('div');
+      c.className = 'confetti-p';
+      c.style.cssText = `left:${10+Math.random()*80}vw;background:${cfColors[Math.floor(Math.random()*cfColors.length)]};animation-duration:${1.4+Math.random()*2}s;animation-delay:${Math.random()*.4}s;transform:rotate(${Math.random()*360}deg)`;
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 3200);
+    }, i * 38);
+  }
+}
+confetti(22);
+
+// ===== STARS =====
+function buildStars() {
+  starsBuilt = true;
+  const sc = document.getElementById('starsEl');
+  for (let i = 0; i < 65; i++) {
+    const s = document.createElement('div');
+    s.className = 'star-d';
+    const sz = 1 + Math.random() * 3;
+    s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-duration:${2+Math.random()*3}s;animation-delay:${-Math.random()*3}s`;
+    sc.appendChild(s);
+  }
+}
+
+// ===== BLOW CANDLES =====
+function blowCandles() {
+  if (blown) return;
+  blown = true;
+  [1,2,3,4].forEach((n, i) => {
+    setTimeout(() => document.getElementById('f'+n).classList.add('out'), i * 220);
+  });
+  setTimeout(() => {
+    document.getElementById('blowArea').style.display = 'none';
+    document.getElementById('blownMsg').classList.add('show');
+    confetti(38);
+    fireworks();
+  }, 1300);
+}
+
+// ===== FIREWORKS =====
+function fireworks() {
+  const fwColors = ['#f06292','#ffd700','#9c27b0','#80cbc4','#ff8a65','#4fc3f7','#fff'];
+  for (let j = 0; j < 6; j++) {
+    setTimeout(() => {
+      const bx = 10 + Math.random() * 80, by = 8 + Math.random() * 45;
+      for (let i = 0; i < 16; i++) {
+        const p = document.createElement('div');
+        p.className = 'fw-p';
+        const a = (i / 16) * 360, d = 40 + Math.random() * 65;
+        p.style.cssText = `left:${bx}vw;top:${by}vh;background:${fwColors[Math.floor(Math.random()*fwColors.length)]};--tx:${Math.cos(a*Math.PI/180)*d}px;--ty:${Math.sin(a*Math.PI/180)*d}px;animation-duration:${.55+Math.random()*.45}s;animation-delay:${Math.random()*.18}s`;
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 1100);
+      }
+    }, j * 340);
+  }
+}
+
+// ===== CHOCOLATES =====
+const chocos = [
+  { e:'🍫', bg:'#5d4037,#3e2723', lbl:'Dark Choco', msg:'Loosu 🍫' },
+  { e:'🍬', bg:'#e91e8c,#880e4f', lbl:'Strawberry', msg:'Paithiyam 🍬' },
+  { e:'🧁', bg:'#9c27b0,#4a148c', lbl:'Cupcake', msg:'Dubukku 🧁' },
+  { e:'🍰', bg:'#f06292,#c2185b', lbl:'Cheesecake', msg:'Venna 🍰' },
+  { e:'🍩', bg:'#ff8f00,#e65100', lbl:'Donut', msg:'Dhanda maadu 🍩' },
+  { e:'🍭', bg:'#00897b,#004d40', lbl:'Lollipop', msg:'Pakki 🍭' },
+  { e:'🫐', bg:'#3949ab,#1a237e', lbl:'Blueberry', msg:'Eruma 🫐' },
+  { e:'🌸', bg:'#f48fb1,#e91e8c', lbl:'Sakura', msg:'My bestie 🌸' },
+];
+const cg = document.getElementById('chocoGrid');
+chocos.forEach(c => {
+  const d = document.createElement('div');
+  d.className = 'choco';
+  d.style.background = `linear-gradient(135deg,${c.bg})`;
+  d.innerHTML = `<div class="shine"></div><span style="font-size:22px">${c.e}</span><span class="choco-lbl">${c.lbl}</span>`;
+  d.onclick = () => showToast(c.msg);
+  cg.appendChild(d);
+});
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('chocoToast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+// ===== GALLERY =====
+// ✏️ ADD YOUR PHOTOS HERE — replace the empty src values with your image file names or URLs
+// Example: { src: 'mithuu1.jpg', caption: 'My favourite smile' }
+const photos = [
+  { src: 'Mithu 1.jpeg', caption: 'Photo 1' },  // ← replace '' with 'yourimage.jpg'
+  { src: 'Mithu 2.jpeg', caption: 'Photo 2' },
+  { src: 'Mithu 3.jpeg', caption: 'Photo 3' },
+  { src: 'Mithu 4.jpeg', caption: 'Photo 4' },
+  { src: 'Mithu 5.jpeg', caption: 'Photo 5' },
+  { src: 'Mithu 6.jpeg', caption: 'Photo 6' },
+];
+
+const gg = document.getElementById('galGrid');
+photos.forEach((p, i) => {
+  const s = document.createElement('div');
+  s.className = 'slot' + (p.src ? ' filled' : '');
+  if (p.src) {
+    s.innerHTML = `<img src="${p.src}" alt="${p.caption}" loading="lazy"><div class="slot-ov"><span>${p.caption}</span></div>`;
+    s.onclick = () => { const w = window.open(); w.document.write(`<img src="${p.src}" style="max-width:100%;max-height:100vh">`); };
+  } else {
+    s.innerHTML = `<div class="slot-ph"><span class="slot-icon">📷</span><span class="slot-num">Photo ${i+1}</span></div>`;
+  }
+  gg.appendChild(s);
+});
+</script>
+</body>
+</html>
