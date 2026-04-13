@@ -7,7 +7,13 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--pink:#f06292;--deep-pink:#e91e8c;--purple:#9c27b0;--gold:#ffd700;--cream:#fff8f9}
-html,body{height:100%;font-family:'Segoe UI',sans-serif;background:var(--cream);overflow:hidden}
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--cream);
+  overflow-x: hidden;   /* only block horizontal scroll */
+  overflow-y: auto;     /* allow vertical scroll */
+}
 
 .page{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;transition:opacity 0.55s ease,transform 0.55s ease;transform:translateX(70px)}
 .page.active{opacity:1;pointer-events:all;transform:translateX(0)}
