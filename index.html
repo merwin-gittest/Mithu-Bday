@@ -8,6 +8,7 @@
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--pink:#f06292;--deep-pink:#e91e8c;--purple:#9c27b0;--gold:#ffd700;--cream:#fff8f9}
 html,body{height:100%;font-family:'Segoe UI',sans-serif;background:var(--cream);overflow:hidden}
+#page1{overflow-y:auto!important}
 
 /* PAGES */
 .page{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;overflow-y:auto;overflow-x:hidden;opacity:0;pointer-events:none;transition:opacity 0.55s ease,transform 0.55s ease;transform:translateX(70px)}
@@ -20,8 +21,7 @@ html,body{height:100%;font-family:'Segoe UI',sans-serif;background:var(--cream);
 .dot.active{background:var(--deep-pink);transform:scale(1.3)}
 
 /* ===== PAGE 1 ===== */
-#page1{background:linear-gradient(155deg,#fff0f5 0%,#fce4ec 45%,#f3e5f5 100%);padding:0 0 90px;min-height:100vh}
-
+#page1{background:linear-gradient(155deg,#fff0f5 0%,#fce4ec 45%,#f3e5f5 100%);padding:0 0 90px;min-height:100vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .hearts-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .fh{position:absolute;animation:floatH 6s ease-in-out infinite;opacity:.4}
 @keyframes floatH{0%,100%{transform:translateY(0) rotate(-5deg);opacity:.4}50%{transform:translateY(-28px) rotate(5deg);opacity:.7}}
